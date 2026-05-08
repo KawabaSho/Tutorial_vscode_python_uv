@@ -30,7 +30,7 @@ uv init MyProject
 cd MyProject
 ```
 
-すでにフォルダが存在する場合はフォルダ内で以下を実行する。
+すでにフォルダが存在する場合はフォルダ内で以下を実行します。
 
 ```powershell
 uv init 
