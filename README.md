@@ -138,12 +138,12 @@ ssh -T git@github.com
 で成功すれば、Github に SSH の登録は完了です。次に Github 上で新しい private repository を作成します。ちなみに、`gh repo create YOUR_REPOSITORY --private --source . --remote origin --push`などでローカル環境から Github 上に新規 repository を作る方法もあるようです。
 
 ## Github 側の作業
-Github 上でプライベートの Repository を新規作成してください。作成出来たら、`git@github.com:ユーザー名/リポジトリ名.git`が表示されると思います。これをコピーして、Github 上の設定は完了です。
+Github 上でプライベートの Repository を新規作成してください。作成出来たら、`git@github.com:ユーザー名/リポジトリ名.git`が表示されると思います。以上で、Github 上の設定は完了です。
 
 ## プロジェクト内で Github のアカウントの登録と Repository の連携
 いよいよ Github にローカルで作成した uv 環境の Push を行っていきます。まずは、Github のアカウントをプロジェクトのローカル環境に登録していきます。
 
-VS Code 内で Termial を開いて、作成したプロジェクト内で以下のコマンドを実行してください。ただし、GitHub の `Keep my email addresses private` と `Block command line pushes that expose my email` を有効にしている場合、Git の `user.email` に個人メールアドレスが入っていると push が拒否されることがあります。private repository を使うなら、GitHub の `noreply` メールアドレスを確認し、それを Git に設定しておくのが安全です。Github 上で、`アカウント -> Setting -> Emails` 内で `(数字 + ユーザー名)@users.noreply.github.com ` こんな感じでこっそり書いてあります。
+VS Code 内で Termial を開いて、作成したプロジェクト内で以下のコマンドを実行してください。ただし、Github 上で、`アカウント -> Setting -> Emails`内の `Keep my email addresses private` と `Block command line pushes that expose my email` を有効にしている場合、Git の `user.email` に個人メールアドレスが入っていると push が拒否されることがあります。プライベートの Repository を使う場合、GitHub の `noreply` メールアドレスを確認し、それを Git に設定しておくのが安全なようです。`noreply` メールアドレスは、`アカウント -> Setting -> Emails` 内に `(数字 + ユーザー名)@users.noreply.github.com ` といった感じでこっそり書いてあります。
 
 ```powershell
 git init               
@@ -151,7 +151,7 @@ git config --local user.name "ユーザー名"
 git config --local user.email "Github上のメールアドレス"         
 ```
 
-最後に、uv 環境が整ったローカルの内容を GitHub に Push します。
+最後に、uv 環境が整ったローカルの内容を GitHub にアップロード(Push)します。
 
 ```powershell
 git add .
@@ -160,7 +160,6 @@ git branch -M main
 git remote add origin git@github.com:ユーザー名/リポジトリ名.git
 git push -u origin main
 ```
-
 
 ここまでできれば、VS Code で編集し、`uv` で実行し、GitHub の private repository で履歴を安全に管理する環境ができたことになります。以降は `uv add`、`uv run`、`git add`、`git commit`、`git push` を繰り返すだけで、学習用にも個人開発用にも十分に運用できます。
 
