@@ -50,7 +50,7 @@ uv run main.py
 code .
 ```
 
-### uv 環境で完結させる方法
+#### uv 環境で完結させる方法
 仮想環境 `.venv` が存在する場合、VS Code 起動すると仮想環境を自動でアクティベートしてしまいます。その結果、uv 機能を使わず、PC にある Python.exe が 仮想環境 `.venv` でプログラムを実行できるようになります。
 
 ```powershell
@@ -108,12 +108,12 @@ python main.py
     "main.py"
 ],
 ```
-以上で uv を使った開発環境が整いました。次に、データ消失などを防ぐために Github 上で管理する方法を説明していきます。
+以上で uv を使った開発環境が整いました。次は、Github 上で管理する方法を説明していきます。ローカルなままで開発する場合は以降のチュートリアルは不要です。
 
 ## SSH キーの設定
-ローカル環境で作成したソースコードを GitHub に push するには、GitHub への認証が必要になります。SSH を使う場合は公開鍵を GitHub に登録し、HTTPS を使う場合は Personal Access Token などで認証します。複数人で Push する場合は、各メンバーを collaborator として追加するか、organization / team で write 権限を付与し、各自が自分の SSH キーまたは Personal Access Token で認証します。
+ローカル環境で作成したソースコードを GitHub にアップロード( Github では Push といいます)するには、GitHub への認証が必要になります。SSH を使う場合は公開鍵を GitHub に登録し、HTTPS を使う場合は Personal Access Token などで認証します。複数人で Push する場合は、各メンバーを collaborator として追加するか、organization / team で write 権限を付与し、各自が自分の SSH キーまたは Personal Access Token で認証します。
 
-### SSH キーの作成
+#### - SSH キーの作成
 VS Code 上の Terminal で以下のコマンドを実行してみてください。`C:\Users\ユーザー名\.ssh` に `id_rsa.pub` という公開鍵が生成されます。
 
 ```powershell
@@ -128,6 +128,8 @@ ssh-keygen -t rsa -C "(ユーザー)@gmail.com" -f $env:USERPROFILE\.ssh\(公開
 ```
 
 などにしてください。公開鍵が作成出来たら、`C:\Users\ユーザー名\.ssh\(公開鍵名).pub` を VS Code で開き、中身をすべてコピーしてください。
+
+#### - SSH キーの登録
 
 ここで、Github 上で、`アカウント -> Setting -> SSH and GPG keys` に移動し、`New SSH key`を押してください。`Title` は自由に決めて、`Key` の中にコピーした公開鍵を張り付けてください。VS Code の Terminal に移動して、
 
@@ -161,7 +163,7 @@ git remote add origin git@github.com:ユーザー名/リポジトリ名.git
 git push -u origin main
 ```
 
-ここまでできれば、VS Code で編集し、`uv` で実行し、GitHub の private repository で履歴を安全に管理する環境ができたことになります。以降は `uv add`、`uv run`、`git add`、`git commit`、`git push` を繰り返すだけで、学習用にも個人開発用にも十分に運用できます。
+ここまでできれば、VS Code で編集し、`uv` で実行し、GitHub の非公開の repository で履歴を安全に管理する環境ができたことになります。以降は `uv add`、`uv run`、`git add`、`git commit`、`git push` を繰り返すだけで、学習用にも個人開発用にも十分に運用できます。
 
 なお、コマンドで Repository への Pull / Push が面倒な場合は、VS Code 内で GitHub の拡張機能を利用して、GUIベースで管理ができます。
 
