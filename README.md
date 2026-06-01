@@ -61,9 +61,9 @@ python main.py
 
 #### - 自動アクティベートの無効化とビルドショートカットの作成
 
-`.vscode` フォルダを作成し、その中に `setting.json` と `tasks.json` を作成します。 `setting.json` 内は
+`.vscode` フォルダを作成し、その中に `settings.json` と `tasks.json` を作成します。 `settings.json` 内は
 
-```setting.json
+```settings.json
 {
     "python.defaultInterpreterPath": "${workspaceFolder}\\.venv\\Scripts\\python.exe",
     "python.terminal.activateEnvironment": false
