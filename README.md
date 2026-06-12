@@ -9,7 +9,7 @@
 - Python が PowerShell 上で使用可能
 
 ## uv のインストール方法
-PowerShell で以下のコマンドを実行します。バージョン情報が出てきたら成功です。
+簡単な導入方法を説明します（推奨のインストール方法は、https://docs.astral.sh/uv/getting-started/installation/ を確認してください）。PowerShell で以下のコマンドを実行します。バージョン情報が出てきたら成功です。
 ```powershell
 pip install uv
 uv --version
